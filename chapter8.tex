@@ -1,0 +1,72 @@
+\documentclass{beamer}
+\usepackage{latexsym} 
+\usepackage{graphicx}
+\usetheme{Warsaw}
+
+\title{Chapter 5}
+\subtitle{Working with Text}
+
+\begin{document}
+\maketitle
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item Natural Language Processing (NLP)
+  \item Sentiment analysis (aka opinion mining)
+  \item Document polarity (e.g. positive vs. negative)
+  \item IMDB dataset
+    \begin{itemize}
+    \item 50,000 movie reviews labeled as positive/negative
+    \item Positive: more than six stars on IMDB
+    \item Negative: fewer than five stars on IMDB
+    \end{itemize}
+  \item Predict automatically whether the reviewer liked the movie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bag-of-words models}
+  \begin{itemize}
+  \item Idea: represent text as numerical feature vectors
+  \item Create a vocabulary (alphabet) of unique tokens (e.g. words)
+  \item Assign an integer index to each token
+  \item Construct a sparse feature vector
+  \item \href{https://github.com/rasbt/python-machine-learning-book/blob/master/code/ch08/ch08.ipynb}{CountVectorizer example}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{N-grams}
+  \begin{itemize}
+  \item Unigrams and bigrams
+  \item The sun is shining
+  \item Unigrams: the, sun, is, shining
+  \item Bigrams: the sun, sun is, is shining
+  \item CountVectorizer can extract any n-grams
+  \item Tf-idf sometimes works better than row counts
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{NLP bag-of-tricks}
+  \begin{itemize}
+  \item Data cleaning to remove noisy tokens (e.g. HTML tags)
+  \item Stemming (e.g. running - run)
+  \item Lemmatization (e.g. went - to go)
+  \item Stop-word removal
+  \item Open-source libraries, e.g. NLTK and OpenNLP
+  \item Details in text (should be useful for projects)
+  \item \href{https://github.com/rasbt/python-machine-learning-book/blob/master/code/ch08/ch08.ipynb}{90\% accurate logistic regression example}
+  \item Out-of-core learning possible in scikit-learn
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\end{document}
