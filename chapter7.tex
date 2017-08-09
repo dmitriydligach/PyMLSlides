@@ -1,0 +1,106 @@
+\documentclass{beamer}
+\usepackage{latexsym} 
+\usepackage{graphicx}
+\usetheme{Warsaw}
+
+\title{Chapter 7}
+\subtitle{Ensemble Classifiers}
+
+\begin{document}
+\maketitle
+
+\begin{frame}
+  \frametitle{Learning with ensembles}
+  \begin{itemize}
+  \item Our goal is to combined multiple classifiers
+  \item Mixture of experts, e.g. 10 experts
+  \item Predictions more accurate and robust
+  \item Provide an intuition why this might work
+  \item Simplest approach: majority voting
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Majority voting}
+  \begin{itemize}
+  \item Majority voting refers to binary setting
+  \item Can easily generalize to multi-class: plurality voting
+  \item Select class label that receives the most votes (mode)
+  \end{itemize}
+  \vspace{0.2in}
+  \center
+  \includegraphics[scale=0.4]{Code/ch07/images/07_01.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Combining predictions: options}
+  \begin{itemize}
+  \item Train $m$ classifiers $C_1,\dots,C_m$
+  \item Build ensemble using different classification algorithms
+  \item Use the same algorithm but fit different subsets of the training set
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{General approach}
+  \center
+  \includegraphics[scale=0.35]{Code/ch07/images/07_02.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+
+\end{document}
