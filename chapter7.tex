@@ -1,5 +1,5 @@
 \documentclass{beamer}
-\usepackage{latexsym} 
+\usepackage{latexsym}
 \usepackage{graphicx}
 \usetheme{Warsaw}
 
@@ -36,8 +36,8 @@
   \frametitle{Combining predictions: options}
   \begin{itemize}
   \item Train $m$ classifiers $C_1,\dots,C_m$
-  \item Build ensemble using different classification algorithms
-  \item Use the same algorithm but fit different subsets of the training set
+  \item Build ensemble using different classification algorithms (e.g. SVM, logistic regression, etc.)
+  \item Use the same algorithm but fit different subsets of the training set (e.g. random forest)
   \end{itemize}
 \end{frame}
 
@@ -48,58 +48,111 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Combining predictions via majority voting}
+  We have predictions of individual classifiers $C_j$ and need to select the final class label $\hat{y}$
+  \[
+  \hat{y} = mode \{ C_1 (\mathbf{x}), C_2 (\mathbf{x}), \dots, C_m (\mathbf{x}) \}
+  \]
+  For example, in a binary classification task where $class_1 = -1$ and $class_2 = +1$, we can write the majority vote prediction as follows:
+  \[
+  C(\mathbf{x}) = sign \Bigg[ \sum_{j}^{m} C_j (\mathbf{x}) \Bigg] = \begin{cases}
+        1 & \text{ if } \sum_j C_j (\mathbf{x}) \ge 0 \\
+        -1 & \text{ otherwise }
+     \end{cases}
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Intuition why ensembles can work better}
+  Assume that all $n$ base classifiers have the same error rate $\epsilon$. We can expresss the probability of an error of an ensemble can be expressed as a probability mass function of a binomial distribution:
+  \[
+  P(y \ge k) = \sum_{k}^{n} \binom{n}{k} \epsilon^k (1 - \epsilon)^{n-k} = \epsilon_{\text{ensemble}}
+  \]
+  Here, $\binom{n}{k}$ is the binomial coefficient \textit{n choose k}. In other words, we compute the probability that the prediction of the ensemble is wrong.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+  Imagine we have 11 base classifiers ($n=11$) with an error rate of 0.25 ($\epsilon = 0.25$):
+  \[
+  P(y \ge k) = \sum_{k=6}^{11} \binom{11}{k} 0.25^k (1 - 0.25)^{11-k} = 0.034
+  \]
+  So the error rate of the ensemble of $n=11$ classifiers is much lower than the error rate of the individual classifiers.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Same reasoning applied to a wider range of error rates}
+  \center
+  \includegraphics[scale=0.6]{Code/ch07/images/07_03.png}
+\end{frame}
+
+\begin{frame}
   \frametitle{}
   \begin{itemize}
-  \item 
+  \item
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
   \begin{itemize}
-  \item 
+  \item
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
   \begin{itemize}
-  \item 
+  \item
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
   \begin{itemize}
-  \item 
+  \item
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
   \begin{itemize}
-  \item 
+  \item
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
   \begin{itemize}
-  \item 
+  \item
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
   \begin{itemize}
-  \item 
+  \item
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
   \begin{itemize}
-  \item 
+  \item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{itemize}
+  \item
   \end{itemize}
 \end{frame}
 
