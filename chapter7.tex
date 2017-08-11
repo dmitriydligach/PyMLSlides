@@ -1,6 +1,8 @@
 \documentclass{beamer}
 \usepackage{latexsym}
 \usepackage{graphicx}
+\usepackage{listings}
+
 \usetheme{Warsaw}
 
 \title{Chapter 7}
@@ -87,6 +89,28 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Voting classifier in scikit-learn}
+  \begin{itemize}
+  \item Simply instantiate several classifiers
+  \item Make a list
+  \item Pass to sklearn.ensemble.VotingClassifier(...)
+  \item  \href{http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.VotingClassifier.html}{\beamergotobutton{API link}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\small
+\begin{verbatim}
+  clf1 = LogisticRegression(random_state=1)
+  clf2 = RandomForestClassifier(random_state=1)
+  clf3 = GaussianNB()
+  estimators=[('lr', clf1), ('rf', clf2), ('gnb', clf3)]
+  ens_clf = VotingClassifier(estimators)
+  ens_clf = eclf1.fit(X, y)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
   \frametitle{Boostrap aggregation (bagging)}
   \begin{itemize}
   \item We used the entire training set for the majority vote classifier
@@ -158,17 +182,23 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-  \begin{itemize}
-  \item
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-  \begin{itemize}
-  \item
-  \end{itemize}
+  \frametitle{AdaBoost algorithm}
+  \begin{enumerate}
+  \item Set weight vector $\mathbf{w}$ to uniform weights where $\sum_i  w_i = 1$.
+  \item For $j$ in $m$ boosting rounds, do the following:
+  \begin{enumerate}
+  \item Train a weighted weak learner: $C_j = train(\mathbf{X, y, w})$.
+  \item Predict class labels: $\hat{y} = predict(C_j, \mathbf{X})$.
+  \item Compute the weighted error rate: $\epsilon = \mathbf{w} \cdot (\mathbf{\hat{y}} \neq \mathbf{y})$.
+  \item Compute the coefficient $\alpha_j$: $\alpha_j=0.5 \log \frac{1 - \epsilon}{\epsilon}$.
+  \item Update the weights: $\mathbf{w} := \mathbf{w} \times \exp \big( -\alpha_j \times \mathbf{\hat{y}} \times \mathbf{y} \big)$.
+  \item Normalize weights to sum to 1: $\mathbf{w}:= \mathbf{w} / \sum_i w_i$.
+  \end{enumerate}
+  \item Compute the final prediction: $\mathbf{\hat{y}} = \big( \sum^{m}_{j=1} \big( \mathbf{\alpha}_j \times predict(C_j, \mathbf{X})  \big) > 0 \big)$.
+  \end{enumerate}
+  \scriptsize
+  \\~\\
+  Notes: For clarity, we will denote element-wise multiplication by the cross symbol $(\times)$ and the dot product between two vectors by a dot symbol $(\cdot)$, respectively. Note that the expression ($\mathbf{\hat{y}} == \mathbf{y}$) in step 5 refers to a vector of 1s and 0s, where a 1 is assigned if the prediction is incorrect and 0 is assigned otherwise.
 \end{frame}
 
 \begin{frame}
