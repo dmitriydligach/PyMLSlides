@@ -128,23 +128,32 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Boosting}
   \begin{itemize}
-  \item
+  \item Basic idea: start with weak learners that have only a slight performance advantage over random guessing (e.g. a decision tree stump) and try to boost their performance by focusing on training samples that are hard to classify
+  \item Very simple base classifiers learn from misclassified training examples
+  \item The original boosting algorithm was formulated by Robert Schapire in 1990
+  \item It was later refined into \textbf{AdaBoost}
+  \item \textbf{AdaBoost} (short for Adaptive Boosting) is the most common implementation of boosting
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-  \begin{itemize}
-  \item
-  \end{itemize}
+  \frametitle{Original boosting algorithm}
+  \begin{enumerate}
+  \item Draw a random subset of training samples $d_1$ without replacement from the training set $D$ to train a weak learner $C_1$
+  \item Draw second random training subset $d_2$ without replacement from the training set and add 50 percent of the samples that were previously misclassified to train a weak learner $C_2$
+  \item Find the training samples $d_3$ in the training set $D$ on which $C_1$ and $C_2$ disagree to train a third weak learner $C_3$
+  \item Combine the weak learners $C_1, C_2$, and $C_3$ via majority voting
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{AdaBoost}
   \begin{itemize}
-  \item
+  \item In contrast, AdaBoost uses the complete training set to train the weak learners
+  \item Training samples are reweighted in each iteration to build a strong classifier
+  \item End goal is to build a strong classifier that learns from the mistakes of the previous weak learners in the ensemble
   \end{itemize}
 \end{frame}
 
