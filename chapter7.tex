@@ -87,30 +87,43 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Boostrap aggregation (bagging)}
   \begin{itemize}
-  \item
+  \item We used the entire training set for the majority vote classifier
+  \item Here we draw \textbf{bootstrap samples}
+  \item In statistics, \textbf{bootstrapping} is any test or metric that relies on \textbf{random sampling with replacement}.
+  \item Hypothesis testing: bootstrapping often used as an alternative to statistical inference based on the assumption of a parametric model when that assumption is in doubt
+  \item The basic idea of bootstrapping is that inference about a population from sample data, can be modelled by resampling with replacement the sample data and performing inference about a sample from resampled data.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-  \begin{itemize}
-  \item
-  \end{itemize}
+  \frametitle{Bagging}
+  \center
+  \includegraphics[scale=0.08]{Code/ch07/images/07_06.png}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Boostrapping example}
+  \center
+  \includegraphics[scale=0.24]{Code/ch07/images/07_07.png}
   \begin{itemize}
-  \item
+  \item Seven training examples
+  \item Sample randomly with replacement
+  \item Use each boostrap sample to train a classifier $C_j$
+  \item $C_j$ is typically a decision tree
+  \item \textbf{Random Forests}: also use random feature subsets
   \end{itemize}
+
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Bagging in scikit-learn}
   \begin{itemize}
-  \item
+  \item Instantiate a decision tree classifier
+  \item Make a bagging classifier with decision trees
+  \item Check that the accuracy is higher for the bagging classifier
+  \item \href{https://github.com/rasbt/python-machine-learning-book/blob/master/code/ch07/ch07.ipynb}{\beamergotobutton{PML github}}
   \end{itemize}
 \end{frame}
 
