@@ -79,6 +79,23 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Yann LeCun explains supervised learning}
+  \scriptsize
+  A pattern recognition system is like a black box with a camera at one end, a green light and a red light on top, and a whole bunch of knobs on the front. The learning algorithm tries to adjust the knobs so that when, say, a dog is in front of the camera, the red light turns on, and when a car is put in front of the camera, the green light turns on. You show a dog to the machine. If the red light is bright, don't do anything. If it’s dim, tweak the knobs so that the light gets brighter. If the green light turns on, tweak the knobs so that it gets dimmer. Then show a car, and tweak the knobs so that the red light get dimmer and the green light gets brighter. If you show many examples of the cars and dogs, and you keep adjusting the knobs just a little bit each time, eventually the machine will get the right answer every time.
+  \center
+  \includegraphics[scale=0.3]{Images/knobs.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Scaling up}
+  The interesting thing is that it may also correctly classify cars and dogs it has never seen before. The trick is to figure out in which direction to tweak each knob and by how much without actually fiddling with them. This involves computing a “gradient,” which for each knob indicates how the light changes when the knob is tweaked.
+  \\~\\
+  Now, imagine a box with 500 million knobs, 1,000 light bulbs, and 10 million images to train it with. That’s what a typical Deep Learning system is.
+  \\~\\
+  Source: \href{http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/facebook-ai-director-yann-lecun-on-deep-learning}{IEEE Spectrum Interview}
+\end{frame}
+
+\begin{frame}
   \frametitle{Supervised learning}
   \includegraphics[width=\textwidth]{Code/ch01/images/01_02.png}
   \begin{itemize}
