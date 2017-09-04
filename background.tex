@@ -4,7 +4,7 @@
 \usetheme{Warsaw}
 
 \title{Chapter 2 background}
-\subtitle{Slides borrowed from \\Oliver Schulte and Greg Mori (Simon Fraser University)}
+\subtitle{Slides courtesy of \\Oliver Schulte and Greg Mori (Simon Fraser University)}
 
 \begin{document}
 \maketitle
@@ -12,11 +12,25 @@
 \begin{frame}
   \frametitle{Coin Tossing}
   \begin{itemize}
-  \item Let's say you're given a coin, and you want to find out $P(heads)$, the probability that if you flip it it lands as ``heads''.
+  \item Given a coin, find out $P(heads)$
+  \item I.e. the probability that if you flip it, it lands as `heads' \pause
   \item Flip it a few times: $H$ $H$ $T$
   \item $P(heads)=2/3$, no need for Comp 379
-  \item Hmm... is this rigorous?  Does this make sense?
+  \item Hmm... is this rigorous?
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bernoulli distribution}
+  \begin{itemize}
+  \item Single binary random variable $x\in\{0,1\}$
+  \item E.g. $x=1$ represents `heads' and $x=0$ represents `tails'
+  \item Probability of $x=1$ denoted by the parameter $\mu$
+  \item So, $p(x=1|\mu) = \mu$ and $p(x=0|\mu) = 1 - \mu$
+  \item The probability distribution over $x$ can be written
+  \end{itemize}
+  \centering
+  $Bern(x|\mu) = \mu^x(1-\mu)^{1-x}$
 \end{frame}
 
 \begin{frame}
