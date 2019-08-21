@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage{latexsym} 
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usetheme{Warsaw}
 
 \title{Chapter 3}
@@ -102,12 +103,12 @@
   \item Probability can be converted to a binary outcome (quantizer)
   \[ \hat{y}= \begin{cases} 
     1 & \text{ if } \phi(z) \ge 0.5 \\
-    0 & \text{ otherwise }.
+    0 & \text{ otherwise }
     \end{cases}
   \]
 \item Which is equivalent to the following
   \[ \hat{y}= \begin{cases} 
-    1 & \text{ if } \phi(z) \ge 0.0 \\
+    1 & \text{ if } z \ge 0.0 \\
     0 & \text{ otherwise }
     \end{cases}
   \]
@@ -222,8 +223,8 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-  \subsection{Tackling overfitting via regularization}
+  \frametitle{L2 regularization}
+  % \subsection{Tackling overfitting via regularization}
   The most common form of regularization is the so-called L2 regularization (sometimes also called L2 shrinkage or weight decay):
   \[
   \frac{\lambda}{2} \lVert \mathbf{w} \rVert^2 = \frac{\lambda}{2} \sum_{j=1}^m w_{j}^{2}
@@ -342,14 +343,16 @@
   \item To ensure convergence in presense of misclassifications
   \item Introduce slack variables $\xi$
   \end{itemize}
-  \\
+  % \\
   \[
   \mathbf{w}^T \mathbf{x}^{(i)} \ge 1 - \xi^{(i)} \text{ if } y^{(i)} = 1
   \]
   \[
   \mathbf{w}^T \mathbf{x}^{(i)} < -1 + \xi^{(i)} \text{ if } y^{(i)} = -1
   \]
-  New objective to be minimized:
+  \begin{itemize}
+  \item New objective to be minimized:
+  \end{itemize}
   \[
   \frac{1}{2} \lVert \mathbf{w} \rVert^2 + C \Big(\sum_i \xi^{(i)} \Big)
   \]
@@ -432,11 +435,13 @@
   $\mathbf{x} = (x_1, x_2), $
   $\mathbf{z} = (z_1, z_2), $ 
   $K(\mathbf{x}, \mathbf{z}) = \langle \mathbf{x} \cdot \mathbf{z} \rangle^2$
-  \[
+
+  \begin{multline*}
   K(x, z) = (x_1z_1 + x_2z_2)^2 = (x_1^2z_1^2 + 2x_1z_1x_2z_2 + x_2^2z_2^2) = \\
   = \langle (x_1^2, \sqrt{2}x_1x_2, x_2^2) \cdot (z_1^2, \sqrt{2}z_1z_2, z_2^2) \rangle
-  = \lange \phi(\mathbf{x}) \phi(\mathbf{z}) \rangle
-  \]
+  = \langle \phi(\mathbf{x}) \phi(\mathbf{z}) \rangle
+  \end{multline*}
+
   % source: http://www.cogsys.wiai.uni-bamberg.de/teaching/ss06/hs_svm/slides/SVM_and_Kernels.pdf
 \end{frame}
 
