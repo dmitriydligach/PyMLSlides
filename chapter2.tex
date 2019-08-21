@@ -121,8 +121,8 @@ and
   \item Initialize the weights to 0 or small random numbers.
   \item For each training sample $\mathbf{x}^{(i)}$, perform the following steps:
     \begin{enumerate}
-    \item Compute the output value $\hat{y}$.
-    \item Update the weights.
+    \item Compute the output value $\hat{y}^{(i)}$
+    \item Update the weights
     \end{enumerate}
   \end{enumerate}
 \end{frame}
@@ -228,6 +228,10 @@ and
   \frametitle{Advantages of Adaline cost function}
   \begin{itemize}
   \item The linear activation function is differentiable
+  \item Why derivatives?
+    \begin{itemize}
+    \item We need to know how much each variable affects the output!
+    \end{itemize}
   \item Unlike the unit step function
   \item It is convex
   \item Can use \emph{gradient descent} to learn the weights
