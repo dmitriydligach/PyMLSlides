@@ -228,11 +228,11 @@ and
   \frametitle{Advantages of Adaline cost function}
   \begin{itemize}
   \item The linear activation function is differentiable
+  \item Unlike the unit step function
   \item Why derivatives?
     \begin{itemize}
     \item We need to know how much each variable affects the output!
     \end{itemize}
-  \item Unlike the unit step function
   \item It is convex
   \item Can use \emph{gradient descent} to learn the weights
   \end{itemize}
@@ -252,6 +252,15 @@ and
 \end{frame}
 
 \begin{frame}
+  \frametitle{Gradient Descent: an intuition}
+  \center
+  \includegraphics[scale=0.40]{Images/grad_desc1.png}
+  \tiny
+  \vspace{0.2in}
+  https://www.analyticsvidhya.com/blog/2017/03/introduction-to-gradient-descent-algorithm-along-its-variants/
+\end{frame}
+
+\begin{frame}
   \frametitle{Gradient descent: an intuition}
   \begin{itemize}
   \item Suppose you are at the top of a mountain, and you have to reach a lake which is at the lowest point of the mountain (a.k.a valley). A twist is that you are blindfolded and you have zero visibility to see where you are headed. So, what approach will you take to reach the lake?
@@ -259,15 +268,6 @@ and
   \end{itemize}
   \vspace{0.2in}
   \tiny
-  https://www.analyticsvidhya.com/blog/2017/03/introduction-to-gradient-descent-algorithm-along-its-variants/
-\end{frame}
-
-\begin{frame}
-  \frametitle{Gradient Descent: an intuition}
-  \center
-  \includegraphics[scale=0.40]{Images/grad_desc1.png}
-  \tiny
-  \vspace{0.2in}
   https://www.analyticsvidhya.com/blog/2017/03/introduction-to-gradient-descent-algorithm-along-its-variants/
 \end{frame}
 
