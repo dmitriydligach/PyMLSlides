@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage{latexsym}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usetheme{Warsaw}
 
 \title{ML Background}
@@ -69,6 +70,15 @@
   \item Take the derivative and set to 0 \pause
     \[ \frac{d}{d \mu } \ln p(\mathcal{D}|\mu) = \sum_{n=1}^{N} x_n \frac{1}{\mu} - (1-x_n) \frac{1}{1-\mu}  = \frac{1}{\mu} H - \frac{1}{1-\mu} T \]
     \[ \mu = \frac{H}{T + H} \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Visualize likelihood function}
+  \begin{itemize}
+  % Plot[p^4(1-p)^6,{p,0,1}]
+  \item Plot[p\textasciicircum4(1-p)\textasciicircum6,\{p,0,1\}]
+  \item \href{https://www.wolframalpha.com/}{Type this into Wolfram Alpha}
   \end{itemize}
 \end{frame}
 
