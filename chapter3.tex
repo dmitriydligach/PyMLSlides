@@ -1,5 +1,5 @@
 \documentclass{beamer}
-\usepackage{latexsym} 
+\usepackage{latexsym}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usetheme{Warsaw}
@@ -90,7 +90,7 @@
   \frametitle{Relationship with Adaline}
   \begin{itemize}
   \item In Adaline, we used the identify function as the activation function
-  \item In logistic regression, we use instead use the sigmoid function
+  \item In logistic regression, we instead use the sigmoid function
   \end{itemize}
   \includegraphics[width=\textwidth]{Code/ch03/images/03_03.png}
 \end{frame}
@@ -101,13 +101,13 @@
   \item Output of the sigmoid often interpreted as probability
   \item E.g. $P(y=1 | \mathbf{x};\mathbf{w}) = 0.8$
   \item Probability can be converted to a binary outcome (quantizer)
-  \[ \hat{y}= \begin{cases} 
+  \[ \hat{y}= \begin{cases}
     1 & \text{ if } \phi(z) \ge 0.5 \\
     0 & \text{ otherwise }
     \end{cases}
   \]
 \item Which is equivalent to the following
-  \[ \hat{y}= \begin{cases} 
+  \[ \hat{y}= \begin{cases}
     1 & \text{ if } z \ge 0.0 \\
     0 & \text{ otherwise }
     \end{cases}
@@ -197,7 +197,7 @@
 \begin{frame}
   \frametitle{Overfitting}
   \begin{itemize}
-  \item Sometimes model performs well on training data but does not generalize well to unsee data (test data)
+  \item Sometimes model performs well on training data but does not generalize well to unseen data (test data)
   \item This is overfitting
   \item If a model suffers from overfitting, the model has a high variance
   \item This is often caused by a model that's too complex
@@ -232,7 +232,7 @@
   Where $\lambda$ is the so-called regularization parameter.
   To apply regularization, we add the regularization term to the cost function, which shrinks the weights:
   \[
-  J(\mathbf{w}) = \sum_{i=1}^{n} \bigg[ - y^{(i)} \log \big(  \phi(z^{(i)})  \big)  - \big( 1 - y ^{(i)} \big)  \log \big( 1 - \phi(z^{(i)})   \big)   \bigg] + \frac{\lambda}{2} \lVert \mathbf{w}\rVert^2  
+  J(\mathbf{w}) = \sum_{i=1}^{n} \bigg[ - y^{(i)} \log \big(  \phi(z^{(i)})  \big)  - \big( 1 - y ^{(i)} \big)  \log \big( 1 - \phi(z^{(i)})   \big)   \bigg] + \frac{\lambda}{2} \lVert \mathbf{w}\rVert^2
   \]
 \end{frame}
 
@@ -293,7 +293,7 @@
   \]
   Where the length of the vector $\mathbf{w}$ is defined as follows:
   \[
-  \lVert \mathbf{w} \rVert = \sqrt{\sum_{j=1}^{m} w_{j}^{2}} 
+  \lVert \mathbf{w} \rVert = \sqrt{\sum_{j=1}^{m} w_{j}^{2}}
   \]
 \end{frame}
 
@@ -433,7 +433,7 @@
 \begin{frame}
   \frametitle{Kernel Trick: Example}
   $\mathbf{x} = (x_1, x_2), $
-  $\mathbf{z} = (z_1, z_2), $ 
+  $\mathbf{z} = (z_1, z_2), $
   $K(\mathbf{x}, \mathbf{z}) = \langle \mathbf{x} \cdot \mathbf{z} \rangle^2$
 
   \begin{multline*}
@@ -501,7 +501,7 @@
   \end{itemize}
   Distance metrics:
   \[
-  d \big(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}\big) =  \sqrt[p]{\sum_k \big| x_{k}^{(i)} - x_{k}^{(j)} \big|^p } 
+  d \big(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}\big) =  \sqrt[p]{\sum_k \big| x_{k}^{(i)} - x_{k}^{(j)} \big|^p }
   \]
   Euclidean distance if we set the parameter $p=2$ \\
   Manhattan distance if we set the parameter $p=1$
