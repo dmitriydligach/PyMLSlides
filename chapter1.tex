@@ -182,8 +182,24 @@
 
 \begin{frame}
   \frametitle{Model selection}
+  \begin{block}{No Free Lunch Theorem}
+  Any two optimization algorithms are equivalent when their performance is averaged across all possible problems.
+  \end{block}
+  \begin{block}{Example}
+  A toy universe that exists for exactly two days and on each day contains exactly one object, a square or a triangle.
+  The universe has exactly four possible histories: \\
+  (square, triangle) \\
+  (square, square) \\
+  (triangle, triangle) \\
+  (triangle, square) \\
+  Any prediction strategy that succeeds for history 2, by predicting a square on day 2 if there is a square on day 1, will fail on history 1, and vice versa. If all histories are equally likely, then any prediction strategy will score the same, with the same accuracy rate of 0.5.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Model selection}
   \begin{itemize}
-  \item No Free Lunch Theorems
+  \item What's the intuition behind NFL?
   \item Each classification algorithm makes assumptions
   \item Often we empirically determine what works best
   \item But how do we know what works best?
@@ -203,7 +219,7 @@
   \item But NumPy and SciPy build upon lower level C and Fortran subroutines
   \item Scikit-learn library
   \item See page 13 for installation instructions (or just google)
-  \item \href{http://jalammar.github.io/visual-numpy/}{\beamerbutton{NumPy Slides}}    
+  \item \href{http://jalammar.github.io/visual-numpy/}{\beamerbutton{NumPy Slides}}
   % \item \href{http://www-ekp.physik.uni-karlsruhe.de/~giffels/GridKa-School-Lectures/NumPy.slides.html}{\beamerbutton{NumPy Slides}}
   \end{itemize}
 \end{frame}
