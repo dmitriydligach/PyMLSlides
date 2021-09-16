@@ -59,6 +59,19 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Logit function}
+  \begin{center}
+  \includegraphics[scale=0.09]{Images/logit-function.png}
+  \end{center}
+  \begin{itemize}
+  \item Mathematically, the logit function is the inverse of the logistic function
+  \item An inverse function is a function that 'reverses' another function
+  \item I.e. if the function $f$ applied to an input $x$ gives a result of $y$, then applying its inverse function $g$ to $y$ gives the result $x$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
   \frametitle{Modeling logit function}
   \begin{itemize}
   \item We model the logit function as a linear combination of features (dot product of feature values and weights)
@@ -214,7 +227,10 @@
 
 \begin{frame}
   \frametitle{Regularization}
-  \includegraphics[scale=0.3]{Code/ch03/images/03_06.png}
+  \textbf{Regularization:} adding information in order to solve an ill-posed problem or to prevent overfitting. An example of an ill-posed problem is a problem where the solution does not exist or is not unique.
+  \begin{center}
+  \includegraphics[scale=0.25]{Code/ch03/images/03_06.png}
+  \end{center}
   \begin{itemize}
   \item Regularization is a way to tune the complexity of the model
   \item Regularization helps to filter out noise from training data
@@ -224,16 +240,25 @@
 
 \begin{frame}
   \frametitle{L2 regularization}
-  % \subsection{Tackling overfitting via regularization}
   The most common form of regularization is the so-called L2 regularization (sometimes also called L2 shrinkage or weight decay):
   \[
   \frac{\lambda}{2} \lVert \mathbf{w} \rVert^2 = \frac{\lambda}{2} \sum_{j=1}^m w_{j}^{2}
   \]
   Where $\lambda$ is the so-called regularization parameter.
-  To apply regularization, we add the regularization term to the cost function, which shrinks the weights:
+  To apply regularization, we add the regularization term to the cost function, which shrinks the weights (adding a zero mean gaussian prior over the weights):
   \[
   J(\mathbf{w}) = \sum_{i=1}^{n} \bigg[ - y^{(i)} \log \big(  \phi(z^{(i)})  \big)  - \big( 1 - y ^{(i)} \big)  \log \big( 1 - \phi(z^{(i)})   \big)   \bigg] + \frac{\lambda}{2} \lVert \mathbf{w}\rVert^2
   \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Weight decay}
+  Note that the derivative of $w^2$ with respect to $w$ is $2w$, so:
+  % source: https://stats.stackexchange.com/questions/29130/difference-between-neural-net-weight-decay-and-learning-rate
+  \[
+  w_i = w_i - \eta \frac{\partial J}{\partial w_i} - \eta \lambda w_i
+  \]
+  The new term ($\eta \lambda w_i$) coming from the regularization causes the weight to decay in proportion to its size.
 \end{frame}
 
 \begin{frame}
